@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+<script
+  async
+  src="https://maps.googleapis.com/maps/api/js?key=659064580758-8tlei4488ec2npdcd7pvlkn8inc4tesc.apps.googleusercontent.com&callback=initMap"
+></script>
+<router-outlet></router-outlet>
+<div class="sign">
+  <div class="sign_data">
+    <p class="sign_free">Welcome Back!</p>
+    <p class="join2">What will you learn today? Find out, with Alison</p>
+    <div class="first_btns">
+      <button routerLink="/signup" class="first_signup">Sign Up</button>
+      <button routerLink="/signin" class="first_login">Log In</button>
+    </div>
+    <div class="allsign">
+      <div class="social">
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/facebook.svg"
+            width="20px"
+            height="20px"
+          />
+          <div *ngIf="!isLoggedin">
+            <a class="connect" (click)="loginWithFacebook()">
+              Continue with Facebook
+            </a>
+          </div>
+          <div *ngIf="isLoggedin">
+            <a class="connect" (click)="logOut()"> logout </a>
+          </div>
+          <!-- <div *ngIf="isLoggedin === true">
+            <a routerLink="/home">Signin</a>
+          </div> -->
+          <!-- <a href="facebook.com" class="connect"> Continue with Facebook </a> -->
+        </div>
+
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/google.png"
+            width="20px"
+            height="20px"
+          />
+          <div *ngIf="isLoggedin === false">
+            <a class="connect" (click)="loginWithGoogle()">
+              Continue with Google
+            </a>
+          </div>
+          <div *ngIf="isLoggedin">
+            <a class="connect" (click)="logOut()"> logout </a>
+          </div>
+          <!-- <a href="google.com" class="connect"> Continue with Google </a> -->
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/microsoft.png"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signin" class="connect"> Continue with Microsoft </a>
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/linkedin.jpg"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signin" class="connect"> Continue with Linkedin </a>
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/yahoo.png"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signin" class="connect"> Continue with Yahoo </a>
+        </div>
+      </div>
+      <div class="v3"></div>
+
+      <div>
+        <div class="new">
+          <div class="sign_email">
+            <input
+              class="email"
+              type="email"
+              placeholder="Email address"
+              name="email-address"
+              id="email-address"
+              required="required"
+              (input)="onEmailChange($event)"
+            />
+          </div>
+          <div class="sign_password">
+            <input
+              type="password"
+              class="pass"
+              placeholder="Password"
+              name="password"
+              id="password"
+              required="required"
+              (input)="onPassChange($event)"
+            />
+
+            <svg class="eye" viewBox="0 0 32 32">
+              <path
+                d="M16 9c4.45 0 8.076 2.417 10.73 6.997a2 2 0 01-.088 2.145C23.96 21.998 20.357 24 16 24c-4.357 0-7.96-2.002-10.642-5.858a2 2 0 01-.088-2.145C7.924 11.417 11.55 9 16 9zm0 2c-3.682 0-6.682 2-9 6 2.318 3.333 5.318 5 9 5 3.682 0 6.682-1.667 9-5-2.318-4-5.318-6-9-6zm0 1a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"
+              ></path>
+            </svg>
+          </div>
+          <div class="keepme_checkboxx">
+            <input
+              class="keepme_checkbox"
+              type="checkbox"
+              name="check"
+              id="check"
+            />
+            <label for="check" class="terms"> Keep me logged in </label>
+            <span class="forgot_p">
+              <a class="forgot" routerLink="/signin"> Forgot Password? </a>
+            </span>
+          </div>
+          <div class="log_btn">
+            <button routerLink="/courses" class="login_btn" type="submit">
+              Log In
+            </button>
+            <p class="p_login">
+              Don't have an Alison account?
+              <a class="p_login_btn" routerLink="/signup"> Sign Up </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,163 @@
+<!-- <div>
+  <img
+    class="background"
+    src="https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fphotos%2FzYgV-NGZtlA&psig=AOvVaw290d0YdqN9UJ_df87UmE8D&ust=1623500543628000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLjappjJj_ECFQAAAAAdAAAAABAJ"
+    alt=""
+  /> -->
+<app-navbar></app-navbar>
+<div class="sign">
+  <div class="sign_data">
+    <p class="sign_free">Sign Up For Free</p>
+    <p class="join">Join the World’s Largest Free Learning Community</p>
+    <div class="first_btns">
+      <button routerLink="/signup" class="first_sign">Sign Up</button>
+      <button routerLink="/signin" class="first_log">Log In</button>
+    </div>
+    <div class="allsign">
+      <div class="social">
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/facebook.svg"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signup" class="connect"> Continue with Facebook </a>
+        </div>
+
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/google.png"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signup" class="connect"> Continue with Google </a>
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/microsoft.png"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signup" class="connect"> Continue with Microsoft </a>
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/linkedin.jpg"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signup" class="connect"> Continue with Linkedin </a>
+        </div>
+        <div class="facebook">
+          <img
+            class="fbook"
+            alt="facebook"
+            src="assets/images/yahoo.png"
+            width="20px"
+            height="20px"
+          />
+          <a routerLink="/signup" class="connect">Continue with Yahoo </a>
+        </div>
+      </div>
+      <div class="v3"></div>
+
+      <form
+        method="POST"
+        [formGroup]="formdata"
+        (ngSubmit)="add(formdata.value)"
+      >
+        <div class="new">
+          <p class="appear">
+            This is the name that will appear on your Certification
+          </p>
+          <div class="sign_name">
+            <input
+              class="name"
+              type="text"
+              placeholder="First Name"
+              name="name"
+              id="name"
+              required="required"
+              formControlName="name"
+            />
+
+            <input
+              class="sur"
+              type="text"
+              placeholder="Surname"
+              name="surname"
+              id="surname"
+              required="required"
+              formControlName="surname"
+            />
+          </div>
+
+          <div class="sign_email">
+            <input
+              class="email"
+              type="email"
+              placeholder="E-mail"
+              name="emailaddress"
+              id="emailaddress"
+              required="required"
+              formControlName="emailaddress"
+            />
+          </div>
+          <div class="sign_password">
+            <input
+              type="password"
+              class="pass"
+              placeholder="Password"
+              name="password"
+              id="password"
+              required="required"
+              formControlName="password"
+            />
+
+            <svg class="eye" viewBox="0 0 32 32">
+              <path
+                d="M16 9c4.45 0 8.076 2.417 10.73 6.997a2 2 0 01-.088 2.145C23.96 21.998 20.357 24 16 24c-4.357 0-7.96-2.002-10.642-5.858a2 2 0 01-.088-2.145C7.924 11.417 11.55 9 16 9zm0 2c-3.682 0-6.682 2-9 6 2.318 3.333 5.318 5 9 5 3.682 0 6.682-1.667 9-5-2.318-4-5.318-6-9-6zm0 1a4 4 0 110 8 4 4 0 010-8zm0 2a2 2 0 100 4 2 2 0 000-4z"
+              ></path>
+            </svg>
+          </div>
+          <div class="checkboxx">
+            <input class="checkbox" type="checkbox" name="check" id="check" />
+            <label for="check" class="terms">
+              I agree to the
+              <a class="conditions" routerLink="/signup">
+                Terms and Conditions
+              </a>
+            </label>
+          </div>
+          <div class="sign_btn">
+            <button class="signup_btn" type="submit">Add User</button>
+            <p class="p_login">
+              Already have an Alison account?
+              <a class="p_login_btn" routerLink="/signin"> Log In </a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<ul>
+  <div *ngIf="persons?.length != 0">
+    <h5 class="text-center">Users</h5>
+    <li class="text-center" *ngFor="let person of persons">
+      <p>Name: {{ person.name }}</p>
+      <p>Email: {{ person.email }}</p>
+    </li>
+  </div>
+</ul>
+
+<!-- </div> -->
+<app-footer></app-footer>

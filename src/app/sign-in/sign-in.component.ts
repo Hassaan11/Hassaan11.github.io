@@ -1,37 +1,33 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GeolocationService } from '@ng-web-apis/geolocation';
-// import {} from '@types/googlemaps';
-// /// <reference types="@types/googlemaps" />
-declare const L: any;
 import {
   SocialAuthService,
   GoogleLoginProvider,
   SocialUser,
   FacebookLoginProvider,
 } from 'angularx-social-login';
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css'],
 })
-export class AppComponent implements OnInit {
-  // route: String = 'signin';
+export class SignInComponent implements OnInit {
+  Email = '';
+  Password = '';
   loginForm: FormGroup | undefined;
   socialUser: SocialUser = new SocialUser();
   isLoggedin: boolean = false;
-  user: SocialUser = new SocialUser();
-  loggedIn: boolean = false;
 
+  lat: any;
+  lng: any;
+  // @Output() onRouteClick = (route: String) => {};
   constructor(
     private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
-    readonly geolocation$: GeolocationService,
     private authService: SocialAuthService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -40,10 +36,6 @@ export class AppComponent implements OnInit {
       this.socialUser = user;
       this.isLoggedin = user != null;
       console.log(this.socialUser);
-    });
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = user != null;
     });
   }
   refreshToken(): void {
@@ -61,9 +53,14 @@ export class AppComponent implements OnInit {
   logOut(): void {
     this.socialAuthService.signOut();
   }
-
-  // onRouteClick = (route: String): void => {
-  //   console.log(route);
-  //   this.route = route;
+  // route = () => {
+  //   console.log('in route');
+  //   this.onRouteClick('signup');
   // };
+  onEmailChange = (event: Event) => {
+    this.Email = (<HTMLInputElement>event.target).value;
+  };
+  onPassChange = (event: Event) => {
+    this.Password = (<HTMLInputElement>event.target).value;
+  };
 }

@@ -1,0 +1,11 @@
+.hide {
+  display: none;
+}
+agm-map {
+  height: 300px;
+}
+#map {
+  width: 60vh;
+  height: 60vh;
+  margin: 0 auto;
+}

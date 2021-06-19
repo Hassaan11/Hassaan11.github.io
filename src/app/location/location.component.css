@@ -1,0 +1,16 @@
+#map {
+  width: 60vh;
+  height: 60vh;
+  margin: 0 auto;
+}
+
+.logout {
+  width: 100%;
+}
+.mybtn1 {
+  position: absolute;
+  right: 0;
+}
+.person {
+  margin-top: 60px;
+}

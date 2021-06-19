@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="person" *ngIf="isLoggedin === true">
+  <div class="logout">
+    <button class="btn btn-primary mybtn1" (click)="logOut()">logout</button>
+  </div>
+  <div class="text-center">
+    <h4>{{ socialUser.name }}</h4>
+    <p>{{ socialUser.email }}</p>
+  </div>
+
+  <div id="map"></div>
+</div>
+<app-footer></app-footer>

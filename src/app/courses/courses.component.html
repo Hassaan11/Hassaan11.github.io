@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="text-center complete">
+  <h2>COURSES</h2>
+  <div class="allcourses" *ngFor="let course of courses">
+    <div class="courses">
+      <div class="data course">
+        <a>
+          <img src="assets/images/courses/{{ course.image1 }}" />
+        </a>
+        <div class="c_data">
+          <span
+            class="span1"
+            [ngStyle]="{ backgroundColor: course.s1 }"
+            style="
+              color: white;
+              font-size: 12px;
+              border-radius: 3px;
+              margin-left: 10px;
+              padding: 3px 5px;
+            "
+          >
+            {{ course.span1 }}
+          </span>
+          <span
+            class="span2"
+            [ngStyle]="{ backgroundColor: course.s2 }"
+            style="
+              color: white;
+              font-size: 12px;
+              border-radius: 3px;
+              margin-left: 10px;
+              padding: 3px 5px;
+            "
+          >
+            {{ course.span2 }}
+          </span>
+          <p class="p1">{{ course.p1 }}</p>
+        </div>
+        <a class="start_now"> {{ course.btn1 }} </a>
+        <a class="start_now2" (click)="share($event)"> Facebook </a>
+        <a class="start_now3" (click)="shareTwitter($event)"> Twitter </a>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
